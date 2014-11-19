@@ -26,4 +26,12 @@ class nextViewController: UIViewController {
         println("次の画面が表示された時<\(tmpCount)>")
     }
     
+    @IBAction func returnMain_OK(segue: UIStoryboardSegue){
+        println("OK")
+    }
+    
+    @IBAction func returnMain_Cancel(segue: UIStoryboardSegue){
+        println("Cancel")
+    }
+    
 }
