@@ -19,7 +19,12 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    @IBAction func returnMenu(segue: UIStoryboardSegue){
+    
+    }
+    @IBAction func tapBtn(sender: AnyObject) {
+        self.performSegueWithIdentifier("mySegue", sender: nil)
+        
+    }
 }
 
