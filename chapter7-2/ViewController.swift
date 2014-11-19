@@ -9,10 +9,10 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    //カウント用の変数
+    var myCount = 0
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,11 +20,23 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     @IBAction func returnMenu(segue: UIStoryboardSegue){
-    
+        let newVC = segue.sourceViewController as nextViewController
+        myCount = newVC.tmpCount
+        myCount++
+        
+        println("前の画面から戻ってきた時<\(myCount)>")
     }
     @IBAction func tapBtn(sender: AnyObject) {
         self.performSegueWithIdentifier("mySegue", sender: nil)
         
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "mySegue") {
+            //カウントアップ
+            myCount++
+            var newVC = segue.destinationViewController as nextViewController
+            newVC.tmpCount = myCount
+        }
     }
 }
 
